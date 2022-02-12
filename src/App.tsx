@@ -1,5 +1,5 @@
 import React from 'react';
-import Products from "./screens/Products/Products";
+import Products from "./screens/Products";
 import {Container} from "@mui/material";
 
 
