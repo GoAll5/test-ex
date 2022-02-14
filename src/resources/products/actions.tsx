@@ -9,7 +9,6 @@ export const fetchProducts = () => {
             dispatch({type: ProductActionTypes.FETCH_PRODUCTS});
             const response = await axios.get('http://jsonplaceholder.typicode.com/photos',{
             });
-            console.log('hello')
             dispatch({type: ProductActionTypes.FETCH_PRODUCTS_SUCCESS, payload: response.data});
 
         } catch (e) {
