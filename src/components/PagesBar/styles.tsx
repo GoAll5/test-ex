@@ -1,6 +1,7 @@
 const pagesBar = {
-    marginTop: 5,
-    marginBottom: 0
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: 5
 }
 
 export const styles = {

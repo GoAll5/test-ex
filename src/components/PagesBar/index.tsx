@@ -13,7 +13,6 @@ export const PagesBar = (props: PropsPagesBar) => {
     const dispatch = useDispatch()
 
     return (
-
             <Pagination
                 count={props.countPage}
                 page={props.page}

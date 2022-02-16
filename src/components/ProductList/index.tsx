@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useDispatch} from "react-redux";
-import {deleteProductById, fetchProducts} from "../../resources/products/actions";
+import {deleteProductById} from "../../resources/products/actions";
 import {Product} from "../../resources/products/_product";
 import {Modal} from "@mui/material";
 
@@ -16,10 +16,6 @@ interface PropsProductList {
 export const ProductList = (props: PropsProductList) => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchProducts());
-    }, [])
-
     if(props.loading) {
         return <h1>Идет загрузка...</h1>
     }
@@ -30,12 +26,6 @@ export const ProductList = (props: PropsProductList) => {
     return (
             <div id="list-items">
             {props.products
-                .filter((product) =>
-                { if (props.albumId === '') {
-                    return true;
-                }
-                    return product.albumId === props.albumId;
-                })
                 .slice(props.page*props.limit-props.limit, props.page*props.limit).map(product =>
                 <div key={product.id}>
                     <Item {...product}

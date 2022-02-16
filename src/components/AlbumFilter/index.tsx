@@ -5,7 +5,6 @@ import {setAlbumId, setProductPage} from "../../resources/products/actions";
 
 interface PropsAlbumFilter {
     albumId: string | number;
-    maxAlbumId: number;
 }
 
 export const AlbumFilter = (props: PropsAlbumFilter) => {
@@ -14,12 +13,8 @@ export const AlbumFilter = (props: PropsAlbumFilter) => {
     const changeAlbumId = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         {
             const album = parseInt(event.target.value);
-            if(Number.isInteger(album) && album > 0 && album <= props.maxAlbumId) { // e , . - +
+            if(Number.isInteger(album) && album > 0) { // e , . - +
                 dispatch(setAlbumId(album));
-                dispatch(setProductPage(1));
-            }
-            else if(album > props.maxAlbumId) {
-                dispatch(setAlbumId(props.maxAlbumId));
                 dispatch(setProductPage(1));
             }
             else {
